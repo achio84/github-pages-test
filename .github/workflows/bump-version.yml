@@ -45,8 +45,8 @@ jobs:
     - name: commit files
       run: |
           date > generated.txt
-          git config --local user.email github-actions@github.com
-          git config --local user.name "github-actions"
+          git config user.email github-actions@github.com
+          git config user.name "github-actions"
           #git remote set-url origin https://x-access-token:${{secrets.github_token}}@github.maybank.com/${{github.repository}}
           git commit -m "bump build version" -a
           git push
