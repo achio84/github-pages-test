@@ -23,8 +23,6 @@ jobs:
         mkdir -p ${{ github.workspace }}
           
     - uses: actions/checkout@v3
-      with: 
-        ref: ${{github.head_ref}}
 
   echo-var:
     runs-on: ubuntu-latest
