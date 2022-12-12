@@ -20,7 +20,7 @@ jobs:
 
   bump-version:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
+    if: contains(github.base_ref, 'main') && github.event_name == 'pull_request'
     steps:
     - shell: bash
       run: |
@@ -35,7 +35,7 @@ jobs:
 
     - name: commit files
       run: |
-          date > generated.txt
+          date > README.md
           git config user.email github-actions@github.com
           git config user.name "github-actions"
           #git remote set-url origin https://x-access-token:${{secrets.github_token}}@github.maybank.com/${{github.repository}}
